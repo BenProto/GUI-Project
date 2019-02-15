@@ -1,4 +1,4 @@
-// import preact 
+// import preact
 import { h, render, Component } from 'preact';
 // import stylesheets for ipad & button
 import style from './style';
@@ -44,8 +44,11 @@ export default class Ipad extends Component {
 			<div class={ style.container }>
 				<div class={ style.header }>
 					<div class={ style.city }>{ this.state.currentCity }</div>
+						City
 					<div class={ style.country }>{ this.state.currentCountry }</div>
+						Country
 					<div class={ style.conditions }>{ this.state.cond }</div>
+						Condition
 					<span class={ style.temperature }>{ this.state.temp }</span>
 				</div>
 				<div class={ style.details }></div>
@@ -68,6 +71,6 @@ export default class Ipad extends Component {
 			currentCountry: country,
 			temp: temp_c,
 			cond : conditions
-		});      
+		});
 	}
 }

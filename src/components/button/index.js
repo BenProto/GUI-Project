@@ -1,6 +1,6 @@
 // import preact
 import { h, render, Component } from 'preact';
-	
+
 export default class Button extends Component {
 
 	// rendering a function when the button is clicked
@@ -14,7 +14,7 @@ export default class Button extends Component {
 		return (
 			<div>
 				<button onClick={cFunction}>
-					Display Weather
+					Cool weather app
 				</button>
 			</div>
 		);
