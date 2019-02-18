@@ -8,8 +8,8 @@ export default class SettingsButton extends Component {
 
 		return (
 			<div id="setting" style="float: left">
-				<button>
-					<img src="./assets/icons/settings.png" onClick={this.clicked}/>
+				<button onClick={this.clicked}>
+					<img src="./assets/icons/settings.png"/>
 				</button>
 			</div>
 		);

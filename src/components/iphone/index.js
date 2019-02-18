@@ -4,11 +4,13 @@ import { h, render, Component } from 'preact';
 import style from './style';
 import style_iphone from '../button/style_iphone';
 import settings_style from '../settingsButton/settings_style';
+//import suggestions_style from '../suggestions/suggestions_style';
 // import jquery for API calls
 import $ from 'jquery';
 // import the Button component
 import Button from '../button';
 import SettingsButton from '../settingsButton';
+import Suggestions from '../suggestions';
 
 export default class Iphone extends Component {
 //var Iphone = React.createClass({
@@ -40,14 +42,13 @@ export default class Iphone extends Component {
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
-
 		// display all weather data
 		return (
 			<div class={ style.container }>
 				<div class={style.notes}> Notes </div>
 				<div class={style.suggestions}>
-					wear a jacket!
-				</div>
+					<Suggestions/></div>
+
 				<div class={style.bottombar}>
 					<div class={style_iphone.bottombar}>
 						<SettingsButton class={style_iphone.SettingsButton} />

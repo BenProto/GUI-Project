@@ -8,7 +8,7 @@ export default class Button extends Component {
 
 		return (
 			<div id = "plus" style="float: right">
-				<button >
+				<button onClick={this.clicked}>
 					<img src="./assets/icons/plus.png" onClick={this.clicked}/>
 				</button>
 			</div>
