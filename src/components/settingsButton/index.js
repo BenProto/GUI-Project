@@ -1,15 +1,15 @@
 // import preact
 import { h, render, Component } from 'preact';
 
-export default class Button extends Component {
+export default class SettingsButton extends Component {
 
 	// rendering a function when the button is clicked
 	render() {
 
 		return (
-			<div id = "plus" style="float: right">
-				<button >
-					<img src="./assets/icons/plus.png" onClick={this.clicked}/>
+			<div id="setting" style="float: left">
+				<button>
+					<img src="./assets/icons/settings.png" onClick={this.clicked}/>
 				</button>
 			</div>
 		);
