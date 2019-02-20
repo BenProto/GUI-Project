@@ -2,16 +2,20 @@
 import { h, render, Component } from 'preact';
 // import stylesheets for ipad & button
 import style from './style';
-import style_iphone from '../button/style_iphone';
+import style_iphone from '../plusButton/style_iphone';
 import settings_style from '../settingsButton/settings_style';
 import suggestions_style from '../suggestions/suggestion_style';
+import submit_style from '../submitButton/submit_style';
+import discard_style from '../discardButton/discard_style';
 // import jquery for API calls
 import $ from 'jquery';
 // import the Button component
-import Button from '../button';
+import PlusButton from '../plusButton';
 import SettingsButton from '../settingsButton';
 import Suggestions from '../suggestions';
-
+import Overlay from '../overlay';
+import SubmitButton from '../submitButton';
+import DiscardButton from '../discardButton';
 
 export default class Iphone extends Component {
 //var Iphone = React.createClass({
@@ -56,6 +60,15 @@ export default class Iphone extends Component {
 		}
 	}
 
+	discardOverlay = () => {
+		console.log("Discarding Overlay");
+		this.setState({showNewSchedule: false});
+	}
+
+	submitSchedule = () => {
+		console.log("submitting schedule...");
+	}
+
 
 	// the main render method for the iphone component
 	render() {
@@ -67,22 +80,28 @@ export default class Iphone extends Component {
 
 				<div class={style.notes}> Notes</div>
 				{this.state.showNewSchedule ? (
-					<div class = {style.overlay}>
-						<form>
-							Time <input type="text" name="time1" size="3"/>  Name of Activity <input type="text" name="activity1" size = "15"/> <br />
-							Time <input type="text" name="time2" size="3"/>  Name of Activity <input type="text" name="activity2" size = "15"/> <br />
-							Time <input type="text" name="time3" size="3"/>  Name of Activity <input type="text" name="activity3" size = "15"/> <br />
-							Time <input type="text" name="time4" size="3"/>  Name of Activity <input type="text" name="activity4" size = "15"/>
-						</form>
+					<div class={style.overlay}>
 
+					<form>
+						Time <input type="text" size="3" ref={(time1) => {this.time1 = time1}}/>  Name of Activity <input type="text" name="activity1" size = "15"/> <br />
+						Time <input type="text" name="time2" size="3"/>  Name of Activity <input type="text" name="activity2" size = "15"/> <br />
+						Time <input type="text" name="time3" size="3"/>  Name of Activity <input type="text" name="activity3" size = "15"/> <br />
+						Time <input type="text" name="time4" size="3"/>  Name of Activity <input type="text" name="activity4" size = "15"/>
+					</form>
 
+						<div class={submit_style.overlay}>
+							<SubmitButton class={submit_style.button} submitClick={this.submitSchedule}/>
+						</div>
+						<div class={discard_style.overlay}>
+							<DiscardButton class={discard_style.button} discardClick={this.discardOverlay}/>
+						</div>
 					</div>): null}
 				<div class={style.suggestions}>
 					<Suggestions /></div>
 
 				<div class={style.bottombar}>
 					<div class={style_iphone.bottombar}>
-						<Button class={style_iphone.button} click ={this.newSchedule}/ >
+						<PlusButton class={style_iphone.button} click ={this.newSchedule}/ >
 						<SettingsButton class={settings_style.SettingsButton} />
 					</div>
 				</div>
