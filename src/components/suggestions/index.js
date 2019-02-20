@@ -8,7 +8,10 @@ export default class Suggestions extends Component {
 
 		return (
 			<div>
-				wear a jacket! hadsklfsadkl;hfsadkl;f
+			<ul style='text-align: left'>
+				<li>Wear a jacket!</li>
+				<li>It's cold out there!</li>
+			</ul>
 			</div>
 		);
 	}

@@ -4,7 +4,7 @@ import { h, render, Component } from 'preact';
 import style from './style';
 import style_iphone from '../button/style_iphone';
 import settings_style from '../settingsButton/settings_style';
-//import suggestions_style from '../suggestions/suggestions_style';
+import suggestions_style from '../suggestions/suggestion_style';
 // import jquery for API calls
 import $ from 'jquery';
 // import the Button component
@@ -12,16 +12,18 @@ import Button from '../button';
 import SettingsButton from '../settingsButton';
 import Suggestions from '../suggestions';
 
+
 export default class Iphone extends Component {
 //var Iphone = React.createClass({
-
 	// a constructor with initial set states
 	constructor(props){
 		super(props);
 		// temperature state
 		this.state.temp = "";
+		this.state.showNewSchedule = false;
 		// button display state
-		this.setState({ display: true });
+		this.state.schedules = [];
+		this.setState({ display: true});
 	}
 
 	// a call to fetch weather data via wunderground
@@ -38,6 +40,23 @@ export default class Iphone extends Component {
 		this.setState({ display: false });
 	}
 
+	newSchedule = () => {
+		console.log(this.state.showNewSchedule);
+		this.setState({showNewSchedule: !this.state.showNewSchedule});
+		var dict = this.state.schedules;
+		dict["Charlie"] = {"7:00" : "Morning Bus",
+											"12:15": "Recess"};
+		this.setState({schedules: dict});
+		var newdict = this.state.schedules;
+		for (var schedule in newdict){
+			console.log(schedule + ": ");
+			for(var time in newdict[schedule]){
+				console.log(time + ", " + newdict[schedule][time]);
+			}
+		}
+	}
+
+
 	// the main render method for the iphone component
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
@@ -45,19 +64,33 @@ export default class Iphone extends Component {
 		// display all weather data
 		return (
 			<div class={ style.container }>
-				<div class={style.notes}> Notes </div>
+
+				<div class={style.notes}> Notes</div>
+				{this.state.showNewSchedule ? (
+					<div class = {style.overlay}>
+						<form>
+							Time <input type="text" name="time1" size="3"/>  Name of Activity <input type="text" name="activity1" size = "15"/> <br />
+							Time <input type="text" name="time2" size="3"/>  Name of Activity <input type="text" name="activity2" size = "15"/> <br />
+							Time <input type="text" name="time3" size="3"/>  Name of Activity <input type="text" name="activity3" size = "15"/> <br />
+							Time <input type="text" name="time4" size="3"/>  Name of Activity <input type="text" name="activity4" size = "15"/>
+						</form>
+
+
+					</div>): null}
 				<div class={style.suggestions}>
-					<Suggestions/></div>
+					<Suggestions /></div>
 
 				<div class={style.bottombar}>
 					<div class={style_iphone.bottombar}>
-						<SettingsButton class={style_iphone.SettingsButton} />
-						<Button class={ style_iphone.Button } / >
+						<Button class={style_iphone.button} click ={this.newSchedule}/ >
+						<SettingsButton class={settings_style.SettingsButton} />
 					</div>
 				</div>
+
 			</div>
 		);
 	}
+
 
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['name'];
