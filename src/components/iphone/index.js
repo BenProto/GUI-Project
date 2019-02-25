@@ -16,9 +16,9 @@ import Suggestions from '../suggestions';
 import Overlay from '../overlay';
 import SubmitButton from '../submitButton';
 import DiscardButton from '../discardButton';
+import Schedule from '../scheduleClass';
 
 export default class Iphone extends Component {
-//var Iphone = React.createClass({
 	// a constructor with initial set states
 	constructor(props){
 		super(props);
@@ -45,18 +45,19 @@ export default class Iphone extends Component {
 	}
 
 	newSchedule = () => {
-		console.log(this.state.showNewSchedule);
 		this.setState({showNewSchedule: !this.state.showNewSchedule});
 		var dict = this.state.schedules;
-		dict["Charlie"] = {"7:00" : "Morning Bus",
-											"12:15": "Recess"};
+		var name = "Charlie";
+		var activities = {"7:00" : "Morning Bus",
+				  "12:15": "Recess"};
+		var newSchedule = new Schedule(name, activities);
+		dict.push(newSchedule);
 		this.setState({schedules: dict});
-		var newdict = this.state.schedules;
-		for (var schedule in newdict){
-			console.log(schedule + ": ");
-			for(var time in newdict[schedule]){
-				console.log(time + ", " + newdict[schedule][time]);
-			}
+
+		for (var x = 0; x < this.state.schedules.length; x++){
+			var y = this.state.schedules[x];
+			console.log(y.getName());
+			console.log(y.getSchedule());
 		}
 	}
 
@@ -66,6 +67,25 @@ export default class Iphone extends Component {
 	}
 
 	submitSchedule = () => {
+		var dict = this.state.schedules;
+		var name = "Charlie";
+		var activities = {"7:00" : "Morning Bus",
+				  "12:15": "Recess"};
+		var newSchedule = new Schedule(name, activities);
+		dict.push(newSchedule);
+		console.log(newSchedule.getName());
+		this.setState({schedules: dict});
+		
+		console.log('new thing' + this.state.schedules[0].getName());
+
+		for (var x = 0; x < this.state.schedules.length; x++){
+			var y = this.state.schedules[x];
+			y.removeActivity("7:00");
+			y.addActivity("15:00", "whatver who cares");
+			console.log(y.getName());
+			console.log(y.getSchedule());
+		}
+
 		console.log("submitting schedule...");
 	}
 
