@@ -22,7 +22,7 @@ export default class Iphone extends Component {
 
 	// a call to fetch weather data via wunderground
 	fetchWeatherData = () => {
-		// API URL with a structure of : http://api.wunderground.com/api/key/feature/q/country-code/city.json
+		// API key of group: b4f894c190c7ca0a4c6b5c4f8d8ff26e
 		var url = "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=b4f894c190c7ca0a4c6b5c4f8d8ff26e";
 		$.ajax({
 			url: url,
@@ -59,8 +59,6 @@ export default class Iphone extends Component {
 		var location = parsed_json['name'];
 		var temp_c = parsed_json['main']['temp'];
 		var conditions = parsed_json['weather']['0']['description'];
-
-		console.log(location);
 
 		// set states for fields so they could be rendered later on
 		this.setState({
