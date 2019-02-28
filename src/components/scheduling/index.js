@@ -9,8 +9,8 @@ export default class Scheduling extends Component {
 		return (
 			<div>
 			<ul style='text-align: left'>
-				<li>Activity</li>
-				<li>Time</li>
+				<li>Activity: {this.props.activity}</li>
+				<li>Time: {this.props.time}</li>
         <li>Weather</li>
 			</ul>
 			</div>

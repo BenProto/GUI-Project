@@ -29,8 +29,8 @@ export default class Iphone extends Component {
 		// temperature state
 		this.state.temp = "";
 		this.state.showNewSchedule = false;
+		this.state.schedules = new Schedule("Hello!", {});
 		// button display state
-		this.state.schedules = [];
 		this.setState({ display: true});
 	}
 
@@ -60,8 +60,9 @@ export default class Iphone extends Component {
 	}
 
 	submitSchedule = () => {
-		console.log("submitting schedule...asdf");
+		console.log("Submitting schedule...");
 		var name = document.getElementById("name").value;
+
 		var time1 = document.getElementById("time1").value;
 		var time2 = document.getElementById("time2").value;
 		var time3 = document.getElementById("time3").value;
@@ -72,34 +73,30 @@ export default class Iphone extends Component {
 		var activity3 = document.getElementById("activity3").value;
 		var activity4 = document.getElementById("activity4").value;
 
-		var dict = this.state.schedules;
 		var activities = {[time1]: activity1,
 											[time2]: activity2,
 											[time3]: activity3,
 											[time4]: activity4};
 		var newS = new Schedule(name, activities);
-		dict.push(newS);
-		this.setState({schedules: dict});
-		console.log("Name: " + this.state.schedules[this.state.schedules.length-1].getName());
-		console.log(this.state.schedules[this.state.schedules.length-1].getSchedule());
+		this.setState({schedules: newS});
 
 		this.setState({showNewSchedule: false});
-		var frm = document.getElementsByName('input-form')[0];
-		frm.reset();
+		console.log(this.state.schedules.getSchedule());
+		console.log(Object.keys(this.state.schedules.getSchedule())[0]);
+		console.log("Schedule submitted");
 
 	}
 
 
-	// the main render method for the iphone component
 	render() {
-		// check if temperature data is fetched, if so add the sign styling to the page
-		// display all weather data
+
 		return (
 			<div class={ style.container }>
-				<div class={style.scheduling}> <Scheduling /> </div>
-				<div class={style.scheduling}> <Scheduling /> </div>
-				<div class={style.scheduling}> <Scheduling /> </div>
-				<div class={style.scheduling}> <Scheduling /> </div>
+				<h1> {this.state.schedules.getName()} </h1>
+				<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[0]]} time={Object.keys(this.state.schedules.getSchedule())[0]}/> </div>
+				<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[1]]} time={Object.keys(this.state.schedules.getSchedule())[1]}/> </div>
+				<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[2]]} time={Object.keys(this.state.schedules.getSchedule())[2]}/> </div>
+				<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[3]]} time={Object.keys(this.state.schedules.getSchedule())[3]}/> </div>
 
 				<div class={style.notes}> Notes</div>
 				{this.state.showNewSchedule ? (

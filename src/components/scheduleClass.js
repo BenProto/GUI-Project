@@ -1,5 +1,5 @@
 class Schedule{
-	
+
 	//takes string n and dictionary s
 	//dictionary should be time : name of activity
 	constructor(n, s){
@@ -15,6 +15,9 @@ class Schedule{
 
 	getName(){
 		return this.title;
+	}
+	getTime(index){
+		return this.schedule[index];
 	}
 
 	removeActivity(time){
