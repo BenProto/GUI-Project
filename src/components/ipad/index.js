@@ -2,11 +2,9 @@
 import { h, render, Component } from 'preact';
 // import stylesheets for ipad & button
 import style from './style';
-import style_ipad from '../button/style_ipad';
 // import jquery for API calls
 import $ from 'jquery';
 // import the Button component
-import Button from '../button';
 
 export default class Ipad extends Component {
 //var Ipad = React.createClass({
@@ -16,8 +14,7 @@ export default class Ipad extends Component {
 		super(props);
 		// temperature state
 		this.state.temp = "";
-		// button display state
-		this.setState({ display: true });
+		this.fetchWeatherData();
     }
 
 	// a call to fetch weather data via wunderground
@@ -30,8 +27,6 @@ export default class Ipad extends Component {
 			success : this.parseResponse,
 			error : function(req, err){ console.log('API call failed ' + err); }
 		})
-		// once the data grabbed, hide the button
-		this.setState({ display: false });
 	}
 
 	// the main render method for the iphone component
@@ -52,9 +47,6 @@ export default class Ipad extends Component {
 					<span class={ style.temperature }>{ this.state.temp }</span>
 				</div>
 				<div class={ style.details }></div>
-				<div class={ style_ipad.container }>
-					{ this.state.display ? <Button class={ style_ipad.button } clickFunction={ this.fetchWeatherData }/ > : null }
-				</div>
 			</div>
 		);
 	}
