@@ -1,0 +1,119 @@
+@import '~style/helpers';
+
+@font-face {
+	font-family: "OpenSans-Light";
+	//src: url("/home/qianze/Desktop/GUI-Project/src/style/fonts/OpenSans-Light.ttf");
+	//src: url("/home/qianze/Desktop/GUI-Project/src/style/fonts/OpenSans-Light.eot");
+	//src: url("/home/qianze/Desktop/GUI-Project/src/style/fonts/OpenSans-Light.woff");
+	src: url('../../assets/fonts/OpenSans-Light.svg');
+	src: url('../../assets/fonts/OpenSans-Light.ttf');
+	src: url('../../assets/fonts/OpenSans-Light.eot');
+	src: url('../../assets/fonts/OpenSans-Light.woff');
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	background-image: url('../../assets/backgrounds/clear-iphone.jpg');
+	color: #fff;
+	width: 414px;
+	height: 736px;
+	text-align: center;
+	padding-top: 80px;
+	margin: 0 auto;
+}
+
+.header {
+	display: flex;
+	font-family: "OpenSans-Light";
+	flex-direction: column;
+	flex: 1;
+}
+.details {
+	flex: 4;
+}
+.city {
+	flex: 1;
+	font-size: 1.7em;
+	font-weight: 400;
+	font-family: "OpenSans-Light";
+}
+.conditions {
+	flex: 1;
+	font-size: 1em;
+}
+.temperature {
+	flex: 2;
+	margin-top: 0;
+	font-size: 4.8em;
+	font-weight: 300;
+	letter-spacing: -12px;
+font-family: "OpenSans-Light";
+}
+.filled:after {
+	content: "°";
+	margin: 0 0 0 1rem;
+	font-size: 0.5em;
+	font-weight: 100;
+	display: inline-block;
+	padding-top: 10px;
+	vertical-align: top;
+}
+
+.overlay{
+	background-color: rgba(105,105,105, .9);
+	z-index: 10;
+	height: 300px;
+	border-radius: 15px;
+	width: 414px;
+	position: absolute;
+	line-height: 26pt;
+}
+
+br{
+	margin-bottom: 4px;
+}
+
+.notes {
+	float: left;
+	margin-left: 30px;
+	margin-bottom: 10px;
+	font-size: 24px;
+	font-family: "OpenSans-Light";
+}
+.suggestions{
+	background-color: rgba(211,211,211, .5);
+	height: 175px;
+	border: 0px solid;
+	border-radius: 20px;
+	width: 375px;
+	display: inline-block;
+	margin-bottom: 10px;
+	postition: absolute;
+	font-size: 24px;
+	font-family: "OpenSans-Light";
+}
+.bottombar{
+	height: 53px;
+	width: 375px;
+	display:inline-block;
+
+}
+
+.scheduling{
+  background-color: rgba(211,211,211, .5);
+	height: 100px;
+	border: 0px solid;
+	border-radius: 20px;
+	width: 23%;
+	display: inline-block;
+	postition: absolute;
+	margin-bottom: 10px;
+	margin-left: 2px;
+	margin-right: 2px;
+	font-size: 12px;
+}
+
+.ul{
+	text-align: left;
+}
