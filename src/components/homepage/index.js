@@ -112,7 +112,14 @@ export default class HomePage extends Component {
 			// display all weather data
 			return (
 				<div class={ style.container }>
-          <Link to='/hourlyforecastpage'><HourlyForecastButton/></Link>
+          <Link to={{
+							pathname: '/hourlyforecastpage',
+							state: {
+									forecast: this.state.forecast
+							}
+					}}>
+						<HourlyForecastButton/>
+					</Link>
 					<div class={ style.header }>
 						<div class={ style.city }>{ this.state.locate }</div>
             <div class={ style.conditions }>{ this.state.cond }</div>
@@ -168,7 +175,7 @@ export default class HomePage extends Component {
 					this.state.forecast.push(parsed_forecast_json['data'][i]['weather']['description']);
 					this.state.forecast.push(parsed_forecast_json['data'][i]['app_temp'])
 				}
-				console.log(this.state.forecast);
+				console.log(this.state.forecast); 
 		}
 
 		parseWeatherResponse = (parsed_json) => {
