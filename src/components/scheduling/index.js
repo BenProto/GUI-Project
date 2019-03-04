@@ -8,11 +8,10 @@ export default class Scheduling extends Component {
 
 		return (
 			<div>
-			<ul style='text-align: left'>
-				<li>Activity: {this.props.activity}</li>
-				<li>Time: {this.props.time}</li>
-        <li>Weather</li>
-			</ul>
+				<br />
+				{this.props.activity} <br />
+				{this.props.time} <br />
+        <br />
 			</div>
 		);
 	}

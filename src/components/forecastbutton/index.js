@@ -6,7 +6,7 @@ import hourlyforecast_image from '../../assets/icons/hourlyforecast.png';
 export default class ForecastButton extends Component {
   render() {
     return (
-      <div>
+      <div id="forecast" style="float:left">
         <img src={hourlyforecast_image}/>
       </div>
     );
