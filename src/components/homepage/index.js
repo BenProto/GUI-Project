@@ -33,7 +33,7 @@ export default class HomePage extends Component {
 			// temperature state
 			this.state.temp = "";
 			this.state.showNewSchedule = false;
-			this.state.schedules = new Schedule("Hello!", {});
+			this.state.schedules = new Schedule("Child", {});
 			// stores 12-hour forecast information; passed as prop to HourlyForecastPage
 			this.state.forecast = new Array();
 			this.fetchWeatherData();
@@ -112,7 +112,6 @@ export default class HomePage extends Component {
 			// display all weather data
 			return (
 				<div class={ style.container }>
-          <Link to='/hourlyforecastpage'><HourlyForecastButton/></Link>
 					<div class={ style.header }>
 						<div class={ style.city }>{ this.state.locate }</div>
             <div class={ style.conditions }>{ this.state.cond }</div>
@@ -120,7 +119,7 @@ export default class HomePage extends Component {
 					</div>
 					<div class={ style.details }></div>
 
-					<h1> {this.state.schedules.getName()} </h1>
+					<div style="text-align:left; margin-left:30px; font-size:20px; margin-bottom:10px"><br /> {this.state.schedules.getName()}'s Day </div>
 					<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[0]]} time={Object.keys(this.state.schedules.getSchedule())[0]}/> </div>
 					<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[1]]} time={Object.keys(this.state.schedules.getSchedule())[1]}/> </div>
 					<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[2]]} time={Object.keys(this.state.schedules.getSchedule())[2]}/> </div>
@@ -151,8 +150,8 @@ export default class HomePage extends Component {
 
 					<div class={style.bottombar}>
 						<div class={style_iphone.bottombar}>
+							<Link to='/hourlyforecastpage'><HourlyForecastButton/></Link>
 							<PlusButton class={style_iphone.button} click ={this.newSchedule}/ >
-							<SettingsButton class={settings_style.SettingsButton} />
 						</div>
 					</div>
 				</div>
