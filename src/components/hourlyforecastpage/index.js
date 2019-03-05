@@ -1,7 +1,8 @@
 // import preact
 import { h, render, Component } from 'preact';
 // import stylesheets for ipad & all icons
-import style from '../iphone/style';
+import style from './style';
+import style_rightbutton from '../rightbutton/style_rightbutton';
 // import necessary components
 import RightButton from '../rightbutton';
 import ForecastElement from '../forecastelement';
@@ -16,8 +17,7 @@ export default class HourlyForecastPage extends Component {
     // this.props.location.state.forecast has 3 pieces of sequential
     // information for every hour (datetime, condition, and temperature)
     return (
-      <div class = {style.container}>
-        <Link to='/'><RightButton /></Link>
+      <div class={style.container}>
         <ForecastElement information={(this.props.location.state.forecast).slice(0,3)}/>
         <ForecastElement information={(this.props.location.state.forecast).slice(3,6)}/>
         <ForecastElement information={(this.props.location.state.forecast).slice(6,9)}/>
@@ -30,6 +30,9 @@ export default class HourlyForecastPage extends Component {
         <ForecastElement information={(this.props.location.state.forecast).slice(27,30)}/>
         <ForecastElement information={(this.props.location.state.forecast).slice(30,33)}/>
         <ForecastElement information={(this.props.location.state.forecast).slice(33,36)}/>
+        <div class={style_rightbutton.rightbutton}>
+          <Link to='/'><RightButton/></Link>
+        </div>
       </div>
     );
   }

@@ -151,12 +151,12 @@ export default class HomePage extends Component {
 					<div class={style.bottombar}>
 						<div class={style_iphone.bottombar}>
 								<Link to={{
-												pathname: '/hourlyforecastpage',
+												pathname: '/hourlyforecast',
 												state: {
 														forecast: this.state.forecast
 												}
 										}}>
-											<HourlyForecastButton/>
+											<HourlyForecastButton class={style_iphone.button}/>
 								</Link>
 								<PlusButton class={style_iphone.button} click ={this.newSchedule}/ >
 						</div>
