@@ -174,7 +174,6 @@ export default class HomePage extends Component {
 					this.state.forecast.push(parsed_forecast_json['data'][i]['weather']['description']);
 					this.state.forecast.push(parsed_forecast_json['data'][i]['app_temp'])
 				}
-				console.log(this.state.forecast);
 		}
 
 		parseWeatherResponse = (parsed_json) => {

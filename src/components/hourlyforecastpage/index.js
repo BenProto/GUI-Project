@@ -11,9 +11,6 @@ import {Link} from 'react-router-dom';
 
 export default class HourlyForecastPage extends Component {
   render() {
-    console.log((this.props.location.state.forecast));
-    console.log((this.props.location.state.forecast).slice(0,3));
-
     // this.props.location.state.forecast has 3 pieces of sequential
     // information for every hour (datetime, condition, and temperature)
     return (
