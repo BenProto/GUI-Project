@@ -8,8 +8,19 @@
 	src: url('../../assets/fonts/OpenSans-Light.woff');
 }
 
+@font-face {
+	font-family: "Melbourne";
+	src: url('../../assets/fonts/Melbourne_light.svg');
+	src: url('../../assets/fonts/Melbourne_light.ttf');
+	src: url('../../assets/fonts/Melbourne_light.eot');
+	src: url('../../assets/fonts/Melbourne_light.woff');
+	font-weight: bold;
+}
+
 .container {
 	flex-direction: column;
+	font-family: "OpenSans-Light";
+	font-weight: bold;
 	color: #fff;
 	width: 414px;
 	height: 736px;
@@ -19,6 +30,8 @@
 	padding-top: 80px;
 	position: relative;
 	background-image: url('../../assets/backgrounds/rsz_mountains.jpg');
+	background-repeat:no-repeat;
+  background-size:cover;
 }
 
 .header {
@@ -27,41 +40,47 @@
 	flex-direction: column;
 	flex: 1;
 }
+
 .details {
 	flex: 4;
 }
+
 .city {
 	flex: 1;
-	font-size: 1.7em;
-	font-weight: 400;
-	font-family: "OpenSans-Light";
+	font-size: 3.8em;
+	font-weight: bold;
+	font-family: "Melbourne";
 }
+
 .conditions {
 	flex: 1;
 	font-size: 1em;
+	font-family: "OpenSans-Light";
+	font-weight: bold;
 }
+
 .temperature {
 	flex: 2;
 	margin-top: 0;
-	font-size: 4.8em;
+	font-family: "Melbourne";
+	font-size: 3.8em;
 	font-weight: 300;
-	letter-spacing: -12px;
-font-family: "OpenSans-Light";
+	letter-spacing: -2px;
 }
+
 .filled:after {
-	content: "°";
-	margin: 0 0 0 1rem;
+	content: "°C";
+	margin-left: -2;
 	font-size: 0.5em;
 	font-weight: 100;
 	display: inline-block;
-	padding-top: 10px;
 	vertical-align: top;
 }
 
 .overlay{
-	background-color: rgba(105,105,105, .9);
-	z-index: 10;
-	height: 300px;
+	font-family: "OpenSans-Light";
+	background-color: rgba(55,84,124, .9);
+	height: 250px;
 	border-radius: 15px;
 	width: 414px;
 	position: absolute;
@@ -76,11 +95,13 @@ br{
 	float: left;
 	margin-left: 30px;
 	margin-bottom: 10px;
-	font-size: 24px;
+	font-size: 20px;
+	font-weight: bold;
 	font-family: "OpenSans-Light";
 }
+
 .suggestions{
-	background-color: rgba(211,211,211, .5);
+	background-color: rgba(55,84,124, .70);
 	height: 175px;
 	border: 0px solid;
 	border-radius: 20px;
@@ -91,6 +112,7 @@ br{
 	font-size: 24px;
 	font-family: "OpenSans-Light";
 }
+
 .bottombar{
 	height: 53px;
 	width: 375px;
@@ -99,7 +121,7 @@ br{
 }
 
 .scheduling{
-  background-color: rgba(211,211,211, .5);
+  background-color: rgba(55,84,124, .70);
 	height: 100px;
 	border: 0px solid;
 	border-radius: 20px;
@@ -109,7 +131,8 @@ br{
 	margin-bottom: 10px;
 	margin-left: 2px;
 	margin-right: 2px;
-	font-size: 12px;
+	font-size: 18px;
+	font-family: "OpenSans-Light";
 }
 
 .ul{

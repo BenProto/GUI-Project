@@ -17,7 +17,7 @@ export default class PlusButton extends Component {
 		return (
 			<div id = "plus" style="float: right">
 				<button onClick={click}>
-					<img src="./assets/icons/plus.png" onClick={this.clicked}/>
+					<img src="./assets/icons/plussmall.png" width="47" onClick={this.clicked}/>
 				</button>
 			</div>
 
