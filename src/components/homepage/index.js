@@ -166,10 +166,9 @@ export default class HomePage extends Component {
 		}
 
 		parseForecastResponse = (parsed_forecast_json) => {
-
 				// parse response for temperature, weather description of next 12 hours
 				var i;
-				for(i = 0; i < 12; i++) {
+				for(i = 0; i < 10; i++) {
 					this.state.forecast.push(parsed_forecast_json['data'][i]['datetime']);
 					this.state.forecast.push(parsed_forecast_json['data'][i]['weather']['description']);
 					this.state.forecast.push(parsed_forecast_json['data'][i]['app_temp'])
