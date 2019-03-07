@@ -134,7 +134,7 @@ export default class HomePage extends Component {
 							Time <input type="text" name="time1" size="3" id="time1" />  Name of Activity <input type="text" name="activity1" id="activity1" size = "15"/> <br />
 							Time <input type="text" name="time2"  id="time2" size="3"/>  Name of Activity <input type="text" name="activity2"  id="activity2" size = "15"/> <br />
 							Time <input type="text" name="time3"  id="time3" size="3"/>  Name of Activity <input type="text" name="activity3"  id="activity3" size = "15"/> <br />
-							Time <input type="text" name="time4"  id="time4" size="3"/>  Name of Activity <input type="text" name="activity4"  id="activity4" size = "15"/>
+							Time <input type="text" name="time4"  id="time4" size="3"/>  Name of Activity <input type="text" name="activity4"  id="activity4" size = "15"/> <br />
 						</form>
 
 							<div class={submit_style.overlay}>
@@ -156,7 +156,7 @@ export default class HomePage extends Component {
 														forecast: this.state.forecast
 												}
 										}}>
-											<HourlyForecastButton class={style_iphone.button}/>
+											<HourlyForecastButton/>
 								</Link>
 								<PlusButton class={style_iphone.button} click ={this.newSchedule}/ >
 						</div>
