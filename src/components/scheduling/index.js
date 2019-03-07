@@ -11,7 +11,7 @@ export default class Scheduling extends Component {
 				<br />
 				 	<div style="font-size:24px;"> {this.props.temp}° <br /> </div>
 					<div style="font-size:14px;"> {this.props.activity} <br /> </div>
-					<div style="font-size:14px;"> {this.props.time} <br /> </div>
+					<div style="font-size:14px;"> {this.props.time}:00 <br /> </div>
 	        <br />
 				</div>
 			);
