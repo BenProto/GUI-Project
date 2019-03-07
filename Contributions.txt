@@ -1,0 +1,14 @@
+Nhu Doan - 25%
+Nhu worked on the hourly forecast and current temperature pages.
+
+Anne Dao - 25%
+Anne worked on the scheduling functionality.
+
+Qianze Zhang - 25%
+Qianze worked on the notes functionality and styling.
+
+Ben Proto - 25%
+Ben worked on the scheduling/submit forms.
+
+Maaz Butt - 0%
+Maaz worked on nothing; he did not respond to any group messages, did not accept Github invitation, did not show up to any outside group meetings.
