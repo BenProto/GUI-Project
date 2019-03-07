@@ -6,6 +6,8 @@ export default class Scheduling extends Component {
 	// rendering a function when the button is clicked
 
 	render() {
+
+		if (this.props.display == true) {
 			return (
 				<div>
 				<br />
@@ -15,5 +17,7 @@ export default class Scheduling extends Component {
 	        <br />
 				</div>
 			);
+		} 
+
 	}
 }
