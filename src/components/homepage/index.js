@@ -42,6 +42,9 @@ export default class HomePage extends Component {
 			this.state.times = new Array();
 			this.state.forecast24 = new Array();
 			this.state.conditions = new Array();
+
+			this.state.displaySuggestions = false;
+			this.state.displaySchedule = false;
 		}
 
 		// a call to fetch forecast data via weatherbit
@@ -92,6 +95,10 @@ export default class HomePage extends Component {
 		}
 
 		submitSchedule = () => {
+			// update suggestions
+			this.state.displaySuggestions = true;
+			this.state.displaySchedule = true;
+
 			this.fetchForecast24Data();
 			var name = document.getElementById("name").value;
 
@@ -138,10 +145,10 @@ export default class HomePage extends Component {
 					<div class={ style.details }></div>
 
 					<div style="text-align:left; margin-left:30px; font-size:24px; margin-bottom:10px; font-family: OpenSans-Light;"><br /> {this.state.schedules.getName()}'s Day </div>
-					<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[0]]} time={Object.keys(this.state.schedules.getSchedule())[0]} temp = {this.state.forecast24[0]}/> </div>
-					<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[1]]} time={Object.keys(this.state.schedules.getSchedule())[1]} temp = {this.state.forecast24[1]}/> </div>
-					<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[2]]} time={Object.keys(this.state.schedules.getSchedule())[2]} temp = {this.state.forecast24[2]}/> </div>
-					<div class={style.scheduling}> <Scheduling activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[3]]} time={Object.keys(this.state.schedules.getSchedule())[3]} temp = {this.state.forecast24[3]}/> </div>
+					<div class={style.scheduling}> <Scheduling display = {this.state.displaySchedule} activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[0]]} time={Object.keys(this.state.schedules.getSchedule())[0]} temp = {this.state.forecast24[0]}/> </div>
+					<div class={style.scheduling}> <Scheduling display = {this.state.displaySchedule} activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[1]]} time={Object.keys(this.state.schedules.getSchedule())[1]} temp = {this.state.forecast24[1]}/> </div>
+					<div class={style.scheduling}> <Scheduling display = {this.state.displaySchedule} activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[2]]} time={Object.keys(this.state.schedules.getSchedule())[2]} temp = {this.state.forecast24[2]}/> </div>
+					<div class={style.scheduling}> <Scheduling display = {this.state.displaySchedule} activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[3]]} time={Object.keys(this.state.schedules.getSchedule())[3]} temp = {this.state.forecast24[3]}/> </div>
 					<div class={style.notes}> Notes</div>
 					{this.state.showNewSchedule ? (
 						<div class={style.overlay}>
@@ -163,7 +170,7 @@ export default class HomePage extends Component {
 						</div>): null}
 
 					<div class={style.suggestions}>
-						<Suggestions /></div>
+						<Suggestions display = {this.state.displaySuggestions}/></div>
 
 					<div class={style.bottombar}>
 						<div class={style_iphone.bottombar}>
