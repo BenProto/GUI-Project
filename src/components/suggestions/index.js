@@ -11,12 +11,21 @@ export default class Suggestions extends Component {
 			return (
 				<div>
 				<ul style='text-align: left'>
+<<<<<<< HEAD
 					<li>It's going to rain today, bring an umbrella!</li>
 					<li>It's going to be cold out there, wear a jacket!</li>
 				</ul>
 				</div>
 			);
 		}
+=======
+					<li>Wear a jacket!</li>
+					<li>It's cold out there!</li>
+				</ul>
+				</div>
+			);
+		} 
+>>>>>>> qbranch
 	}
 
 }
