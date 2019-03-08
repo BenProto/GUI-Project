@@ -2,16 +2,13 @@
 import { h, render, Component } from 'preact';
 
 // this component displays the activity, time, and temperature of the user's
-// daily schedule 
+// daily schedule
 export default class Scheduling extends Component {
 
 	// rendering a function when the button is clicked
 
 	render() {
-<<<<<<< HEAD
-=======
 
->>>>>>> qbranch
 		if (this.props.display == true) {
 			return (
 				<div>
@@ -22,11 +19,7 @@ export default class Scheduling extends Component {
 	        <br />
 				</div>
 			);
-<<<<<<< HEAD
 		}
-=======
-		} 
->>>>>>> qbranch
 
 	}
 }

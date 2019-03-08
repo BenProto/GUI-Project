@@ -39,11 +39,6 @@ export default class HomePage extends Component {
 
 			this.state.times = new Array();
 			this.state.forecast24 = new Array();
-<<<<<<< HEAD
-=======
-			this.state.conditions = new Array();
->>>>>>> qbranch
-
 			this.state.displaySuggestions = false;
 			this.state.displaySchedule = false;
 		}
@@ -95,11 +90,7 @@ export default class HomePage extends Component {
 		}
 
 		submitSchedule = () => {
-<<<<<<< HEAD
 			// update suggestions and schedule display
-=======
-			// update suggestions
->>>>>>> qbranch
 			this.state.displaySuggestions = true;
 			this.state.displaySchedule = true;
 
@@ -174,12 +165,7 @@ export default class HomePage extends Component {
 						</div>): null}
 
 					<div class={style.suggestions}>
-<<<<<<< HEAD
-						<Suggestions display = {this.state.displaySuggestions}/>
-					</div>
-=======
 						<Suggestions display = {this.state.displaySuggestions}/></div>
->>>>>>> qbranch
 
 					<div class={style.bottombar}>
 						<div class={style_iphone.bottombar}>
