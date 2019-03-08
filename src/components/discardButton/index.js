@@ -1,9 +1,9 @@
 // import preact
 import { h, render, Component } from 'preact';
 
+// this component is used to exit from the schedule submit form
 export default class DiscardButton extends Component {
 
-	// rendering a function when the button is clicked
 	render() {
 		const {discardClick} = this.props;
 		return (
@@ -13,8 +13,5 @@ export default class DiscardButton extends Component {
 				</button>
 			</div>
 		);
-	}
-	clicked(){
-		console.log("click!");
 	}
 }

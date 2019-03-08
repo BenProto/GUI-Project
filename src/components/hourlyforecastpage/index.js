@@ -9,6 +9,7 @@ import ForecastElement from '../forecastelement';
 // import routing library
 import {Link} from 'react-router-dom';
 
+// this page displays a 10-hour forecast from the current hour 
 export default class HourlyForecastPage extends Component {
   render() {
     // this.props.location.state.forecast has 3 pieces of sequential

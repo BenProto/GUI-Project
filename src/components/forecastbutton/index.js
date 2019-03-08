@@ -5,6 +5,7 @@ import hourlyforecast_image from '../../assets/icons/hourlyforecast.png';
 // import styles
 import style_forecastbutton from './style_forecastbutton';
 
+// this component is used to view the 10-hour forecast page 
 export default class ForecastButton extends Component {
   render() {
     return (
