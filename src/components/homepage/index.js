@@ -139,7 +139,6 @@ export default class HomePage extends Component {
 					</div>
 					<div class={ style.details }></div>
 
-					// displaying Scheduling data from the user form
 					<div style="text-align:left; margin-left:30px; font-size:24px; margin-bottom:10px; font-family: OpenSans-Light;"><br /> {this.state.schedules.getName()}'s Day </div>
 					<div class={style.scheduling}> <Scheduling display = {this.state.displaySchedule} activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[0]]} time={Object.keys(this.state.schedules.getSchedule())[0]} temp = {this.state.forecast24[0]}/> </div>
 					<div class={style.scheduling}> <Scheduling display = {this.state.displaySchedule} activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[1]]} time={Object.keys(this.state.schedules.getSchedule())[1]} temp = {this.state.forecast24[1]}/> </div>
