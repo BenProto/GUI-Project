@@ -39,7 +39,6 @@ export default class HomePage extends Component {
 
 			this.state.times = new Array();
 			this.state.forecast24 = new Array();
-			this.state.conditions = new Array();
 
 			this.state.displaySuggestions = false;
 			this.state.displaySchedule = false;
@@ -81,7 +80,6 @@ export default class HomePage extends Component {
 			})
 		}
 
-
 		newSchedule = () => {
 			this.setState({showNewSchedule: true});
 		}
@@ -93,19 +91,18 @@ export default class HomePage extends Component {
 		}
 
 		submitSchedule = () => {
-			// update suggestions
+			// update suggestions and schedule display
 			this.state.displaySuggestions = true;
 			this.state.displaySchedule = true;
 
 			this.fetchForecast24Data();
 			var name = document.getElementById("name").value;
-
-
 			var time1 = document.getElementById("time1").value;
 			var time2 = document.getElementById("time2").value;
 			var time3 = document.getElementById("time3").value;
 			var time4 = document.getElementById("time4").value;
 
+			// populating times array to use in the parsing weather function
 			this.state.times.push(time1);
 			this.state.times.push(time2);
 			this.state.times.push(time3);
@@ -142,6 +139,7 @@ export default class HomePage extends Component {
 					</div>
 					<div class={ style.details }></div>
 
+					// displaying Scheduling data from the user form
 					<div style="text-align:left; margin-left:30px; font-size:24px; margin-bottom:10px; font-family: OpenSans-Light;"><br /> {this.state.schedules.getName()}'s Day </div>
 					<div class={style.scheduling}> <Scheduling display = {this.state.displaySchedule} activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[0]]} time={Object.keys(this.state.schedules.getSchedule())[0]} temp = {this.state.forecast24[0]}/> </div>
 					<div class={style.scheduling}> <Scheduling display = {this.state.displaySchedule} activity={this.state.schedules.getSchedule()[Object.keys(this.state.schedules.getSchedule())[1]]} time={Object.keys(this.state.schedules.getSchedule())[1]} temp = {this.state.forecast24[1]}/> </div>
@@ -165,10 +163,12 @@ export default class HomePage extends Component {
 							<div class={discard_style.overlay}>
 								<DiscardButton class={discard_style.button} discardClick={this.discardOverlay}/>
 							</div>
+
 						</div>): null}
 
 					<div class={style.suggestions}>
-						<Suggestions display = {this.state.displaySuggestions}/></div>
+						<Suggestions display = {this.state.displaySuggestions}/>
+					</div>
 
 					<div class={style.bottombar}>
 						<div class={style_iphone.bottombar}>
@@ -211,7 +211,7 @@ export default class HomePage extends Component {
 		}
 
 		parseForecast24Response = (parsed_forecast24_json) => {
-		console.log(parsed_forecast24_json);
+		// taking the user-inputted times to find the temperature at that given time
 		var time1 = this.state.times[0];
 		var time2 = this.state.times[1];
 		var time3 = this.state.times[2];
@@ -225,16 +225,13 @@ export default class HomePage extends Component {
 		for (i = 0; i < 24; i++) {
 			var input = parsed_forecast24_json['data'][i]['datetime'];
 			var fields = input.split(':');
-			var front = fields[0];
 			var back = fields[1];
-
+			// populating array with the temperatures at user-inputted times
 			if (time1 == back) { this.state.forecast24.push(parsed_forecast24_json['data'][i]['app_temp']); }
 			if (time2 == back) { this.state.forecast24.push(parsed_forecast24_json['data'][i]['app_temp']); }
 			if (time3 == back) { this.state.forecast24.push(parsed_forecast24_json['data'][i]['app_temp']); }
 			if (time4 == back) { this.state.forecast24.push(parsed_forecast24_json['data'][i]['app_temp']); }
 
-			this.state.conditions.push(parsed_forecast24_json['data'][i]['weather']['description']);
-			console.log(this.state.conditions);
 		}
 
 
