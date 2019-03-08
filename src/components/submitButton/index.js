@@ -1,9 +1,9 @@
 // import preact
 import { h, render, Component } from 'preact';
 
+// this component is used to submit activities to the schedule submit form 
 export default class SubmitButton extends Component {
 
-	// rendering a function when the button is clicked
 	render() {
 		const {submitClick} = this.props;
 		return (

@@ -1,6 +1,7 @@
 // import preact
 import { h, render, Component } from 'preact';
 
+// this component represents the suggestions given based on the weather
 export default class Suggestions extends Component {
 
 	// rendering a function when the button is clicked
@@ -15,7 +16,7 @@ export default class Suggestions extends Component {
 				</ul>
 				</div>
 			);
-		} 
+		}
 	}
 
 }
