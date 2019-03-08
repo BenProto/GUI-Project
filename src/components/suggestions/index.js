@@ -16,7 +16,7 @@ export default class Suggestions extends Component {
 				</ul>
 				</div>
 			);
-		}
+		} 
 	}
 
 }

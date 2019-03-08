@@ -39,6 +39,7 @@ export default class HomePage extends Component {
 
 			this.state.times = new Array();
 			this.state.forecast24 = new Array();
+			this.state.conditions = new Array();
 
 			this.state.displaySuggestions = false;
 			this.state.displaySchedule = false;
@@ -149,7 +150,7 @@ export default class HomePage extends Component {
 						<div class={style.overlay}>
 
 						<form name="input-form">
-							Name <input type="text" name="name" id="name" size="5" /> <br />
+							Name <input type="text" name="name" id="name" size="10" /> <br />
 							Time <input type="text" name="time1" size="3" id="time1" />  Name of Activity <input type="text" name="activity1" id="activity1" size = "15"/> <br />
 							Time <input type="text" name="time2"  id="time2" size="3"/>  Name of Activity <input type="text" name="activity2"  id="activity2" size = "15"/> <br />
 							Time <input type="text" name="time3"  id="time3" size="3"/>  Name of Activity <input type="text" name="activity3"  id="activity3" size = "15"/> <br />
@@ -166,6 +167,7 @@ export default class HomePage extends Component {
 						</div>): null}
 
 					<div class={style.suggestions}>
+						<Suggestions display = {this.state.displaySuggestions}/></div>
 						<Suggestions display = {this.state.displaySuggestions}/>
 					</div>
 

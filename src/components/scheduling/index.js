@@ -18,7 +18,7 @@ export default class Scheduling extends Component {
 	        <br />
 				</div>
 			);
-		}
+		} 
 
 	}
 }
