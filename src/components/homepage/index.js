@@ -3,7 +3,6 @@ import { h, render, Component } from 'preact';
 // import stylesheets for ipad & all icons
 import style from '../iphone/style';
 import style_iphone from '../plusButton/style_iphone';
-import settings_style from '../settingsButton/settings_style';
 import suggestions_style from '../suggestions/suggestion_style';
 import submit_style from '../submitButton/submit_style';
 import discard_style from '../discardButton/discard_style';
@@ -12,7 +11,6 @@ import $ from 'jquery';
 // import necessary components
 import HourlyForecastButton from '../forecastbutton';
 import PlusButton from '../plusButton';
-import SettingsButton from '../settingsButton';
 import Suggestions from '../suggestions';
 import Overlay from '../overlay';
 import SubmitButton from '../submitButton';
